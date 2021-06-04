@@ -25,6 +25,7 @@ body {
 p {
     line-height: 1.5;
     font-size: 80%;
+    font-weight: 400;
 }
 
 section {
@@ -49,13 +50,26 @@ section {
     border: 2px solid var(--blue);
     padding: 10px 50px;
     color: var(--blue);
+    transition: all .3s ease;
 }
 
-.btn-full{
+.btn-ghost:hover {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+.btn-full {
     background-color: var(--blue);
     padding: 12px 50px;
     color: var(--white);
+    transition: all .3s ease;
 }
+
+.btn-full:hover {
+    background-color: var(--dark-blue);
+}
+
+
 
 /* --------------------------------------------------------------- */
 /* NAV */
@@ -99,7 +113,12 @@ nav {
     color: var(--dark);
 }
 
-.navlinks ul li .btn-ghost{
+.navlinks ul li:first-of-type a:hover{
+    color: var(--blue);
+    
+}
+
+.navlinks ul li .btn-ghost {
     padding: 5px 25px;
 }
 
@@ -141,14 +160,14 @@ h1 {
 /* Section Details */
 /* --------------------------------------------------------------- */
 
-.details{
+.details {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
 }
 
-.details .details-text h2{
+.details .details-text h2 {
     font-size: 200%;
     font-weight: 700;
     margin-bottom: 25px;
@@ -158,29 +177,29 @@ h1 {
 /* Section Features */
 /* --------------------------------------------------------------- */
 
-.section-features{
+.section-features {
     text-align: center;
 }
 
-.section-features h1{
+.section-features h1 {
     font-size: 200%;
 }
 
-.section-features .row:first-of-type{
+.section-features .row:first-of-type {
     margin-bottom: 90px;
 }
 
-.section-features .feature-card header img{
+.section-features .feature-card header img {
     width: 55%;
 }
 
-.wrapper{
+.wrapper {
     display: grid;
     grid-template-columns: repeat(3, minmax(350px, auto));
     justify-content: space-between;
 }
 
-.section-features .feature-card{
+.section-features .feature-card {
     width: 350px;
     display: grid;
     gap: 30px;
@@ -188,16 +207,17 @@ h1 {
     filter: drop-shadow(0px 0px 20px #e3eaf3);
     padding: 20px;
     border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 
-.section-features .feature-card p{
+.section-features .feature-card p {
     font-size: 80%;
     width: 85%;
     margin: 20px auto;
 }
 
-.section-features .feature-card header{
+.section-features .feature-card header {
     margin: 0 auto;
     height: 310px;
     width: 310px;
@@ -206,47 +226,51 @@ h1 {
     display: grid;
 }
 
-.section-features .feature-card img{
+.section-features .feature-card img {
     width: 50%;
     height: auto;
     margin: auto;
 }
 
-.feature-card footer{
+.feature-card footer {
     padding: 0;
+}
+
+.section-features .feature-card:hover{
+    transform: scale(1.03);
 }
 
 /* --------------------------------------------------------------- */
 /* Section Try */
 /* --------------------------------------------------------------- */
 
-.section-try{
+.section-try {
     text-align: center;
 }
 
-.section-try h1{
+.section-try h1 {
     font-size: 200%;
 }
 
-.section-try p{
+.section-try p {
     font-size: 100%;
     margin: 0 auto;
 }
 
-.section-try .btn-full{
+.section-try .btn-full {
     padding: 15px 30px;
 }
 
-.section-try a{
+.section-try a {
     margin: 80px 0;
 }
 
-.section-try a p{
+.section-try a p {
     font-size: 100%;
     font-weight: 400;
 }
 
-.section-try a div{
+.section-try a div {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -256,17 +280,26 @@ h1 {
 /* Section Footer */
 /* --------------------------------------------------------------- */
 
-footer{
+footer {
     text-align: center;
     padding: 30px 0;
 }
 
-footer ul li{
+footer ul li {
     list-style: none;
     display: inline-block;
     margin: 0 20px;
 }
 
-.footer-icon{
+.footer-icon {
     margin: 10px 0;
+}
+
+.footer-icon ul li a svg{
+    color: var(--dark);
+    transition: all 0.2s ease;
+}
+
+.footer-icon svg:hover {
+    color: var(--blue);
 }
