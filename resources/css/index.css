@@ -413,6 +413,10 @@ footer ul li {
         align-items: center;
     }
 
+    .hero .message h1{
+        font-size: 200%;
+    }
+
     .details{
         grid-template-columns: 1fr;
         align-items: center;
