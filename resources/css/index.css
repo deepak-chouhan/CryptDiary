@@ -33,7 +33,7 @@ section {
 }
 
 .row {
-    max-width: 90%;
+    max-width: 90vw;
     margin: 0 auto;
 }
 
@@ -313,7 +313,7 @@ footer ul li {
 @media only screen and (max-width: 1200px) {
 
     .row{
-        max-width: 95%;
+        max-width: 90vw;
     }
     body{
         font-size: 18px;
@@ -355,7 +355,7 @@ footer ul li {
 @media only screen and (max-width: 1023px) {
 
     .row{
-        max-width: 95%;
+        max-width: 90vw;
     }
     body{
         font-size: 18px;
@@ -394,6 +394,11 @@ footer ul li {
 
     body{
         font-size: 16px;
+    }
+
+    .row{
+        max-width: 90vw;
+        margin: 0 auto;
     }
     
     nav{
