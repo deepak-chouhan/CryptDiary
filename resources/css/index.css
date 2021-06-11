@@ -20,7 +20,6 @@ body {
     color: var(--dark);
     text-rendering: optimizeLegibility;
     background-color: #FCFCFC;
-    zoom: 0.97;
 }
 
 p {
