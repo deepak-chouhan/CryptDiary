@@ -157,10 +157,7 @@ nav {
     fill: var(--dark-blue);
 }
 
-#mob-link {
-    height: 0px;
-    opacity: 0;
-    pointer-events: none;
+.links {
     transition: all .3s ease;
 }
 
@@ -479,6 +476,10 @@ footer ul li {
     .row {
         max-width: 90vw;
         margin: 0 auto;
+    }
+
+    .logo h3{
+        display: none;
     }
 
     .navlinks {
