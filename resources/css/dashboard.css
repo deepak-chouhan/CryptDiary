@@ -746,7 +746,14 @@ section {
     .head {
         width: 100%;
         left: 0;
+        padding: 10px 30px;
     }
+
+    .head .left{
+        gap: 10px;
+    }
+
+
 
     .home-content {
         width: 100%;
