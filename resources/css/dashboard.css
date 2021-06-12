@@ -727,7 +727,7 @@ section {
 
 @media only screen and (max-width: 768px) {
 
-    body{
+    body {
         font-size: 18px;
     }
 
@@ -749,7 +749,7 @@ section {
         padding: 10px 30px;
     }
 
-    .head .left{
+    .head .left {
         gap: 10px;
     }
 
@@ -760,15 +760,29 @@ section {
         left: 0;
     }
 
-    .pass-wrapper, .card-wrapper, .address-wrapper, .notes-wrapper, .todo-list-wrapper{
+    .pass-wrapper,
+    .card-wrapper,
+    .address-wrapper,
+    .notes-wrapper,
+    .todo-list-wrapper {
         grid-template-columns: repeat(1, minmax(300px, 1fr));
     }
 
-    .pass, .card, .address, .note, .todo{
+    .pass,
+    .card,
+    .address,
+    .note,
+    .todo {
         width: 100%;
         margin: 0 auto;
     }
 
+}
 
+@media only screen and (max-width: 480px) {
+
+    .card .bottom {
+        bottom: -10px;
+    }
 
 }
