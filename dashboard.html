@@ -17,7 +17,11 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <div id="side-nav" class="sidebar">
+        <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+            <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
+                fill="#0554f2" />
+        </svg>
         <div class="logo-content">
             <div class="logo">
                 <a href="">
@@ -76,10 +80,21 @@
         </div>
     </div>
     <div class="head">
-        <div class="search-bar">
-            <img src="/resources/img/Search.svg" alt="">
-            <input type="text" placeholder="Search" name="search" id="">
+        <div class="left">
+            <div>
+                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+                    <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
+                        fill="#0554f2" />
+                </svg>
+            </div>
+            <div class="dashboard-menu">
+            </div>
+            <div class="search-bar">
+                <img src="/resources/img/Search.svg" alt="">
+                <input type="text" placeholder="Search" name="search" id="">
+            </div>
         </div>
+
         <div class="user-profile">
             <p>Hi, Deepak</p>
             <img src="https://tinyurl.com/y7zbmnvk" alt="">
@@ -848,6 +863,9 @@
 
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="resources/js/dashboard.js"></script>
 </body>
 
 </html>
