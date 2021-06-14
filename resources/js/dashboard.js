@@ -24,9 +24,13 @@ $(document).ready(function () {
         if (w <= 767 && dashboard_nav.style.left == "0px") {
             $('.sidebar').removeAttr('style');
             dashboard_nav.style.left = "-150px";
-        } else {
-            dashboard_nav.style.left = "0px";
         }
+
+        if (w >= 767 && dashboard_nav.style.left == "-150px") {
+            $('.sidebar').removeAttr('style');
+            dashboard_nav.style.left = "0";
+        }
+
     });
 
 })

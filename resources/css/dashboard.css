@@ -155,6 +155,11 @@ section {
     height: auto;
 }
 
+.sidebar .dashboard-menu{
+    width: 25px;
+    height: auto;
+}
+
 .logout-btn {
     margin: 0 auto;
     position: relative;
@@ -241,7 +246,7 @@ section {
 }
 
 .head .left svg {
-    width: 30px;
+    width: 22px;
     height: auto;
 }
 
@@ -436,6 +441,10 @@ section {
     transition: all .2s ease;
     position: relative;
     text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover {
@@ -449,7 +458,7 @@ section {
     font-size: 100%;
     font-family: 'Roboto Mono', monospace;
     letter-spacing: 3px;
-    margin-bottom: 65px;
+    margin-bottom: 15%;
 }
 
 .card .middle {
@@ -458,7 +467,7 @@ section {
     align-items: center;
     font-family: 'Roboto Mono', monospace;
     letter-spacing: 3px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .card .middle h3 {
@@ -478,8 +487,6 @@ section {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    bottom: -25px;
-
 }
 
 .card .bottom h3 {
@@ -488,6 +495,11 @@ section {
 
 .card .bottom p {
     font-size: 90%;
+}
+
+.btm{
+    display: grid;
+    gap: 10px;
 }
 
 /* --------------------------------------------------------------- */
@@ -707,6 +719,23 @@ section {
         display: none;
     }
 
+    .pass-wrapper,
+    .card-wrapper,
+    .address-wrapper,
+    .notes-wrapper,
+    .todo-list-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .pass,
+    .card,
+    .address,
+    .note,
+    .todo {
+        width: 100%;
+        margin: 0 auto;
+    }
+
 
 
 }
@@ -719,6 +748,23 @@ section {
 
     .dashboard-menu {
         display: none;
+    }
+
+    .pass-wrapper,
+    .card-wrapper,
+    .address-wrapper,
+    .notes-wrapper,
+    .todo-list-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .pass,
+    .card,
+    .address,
+    .note,
+    .todo {
+        width: 100%;
+        margin: 0 auto;
     }
 
 
@@ -765,7 +811,7 @@ section {
     .address-wrapper,
     .notes-wrapper,
     .todo-list-wrapper {
-        grid-template-columns: repeat(1, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 
     .pass,
@@ -781,8 +827,40 @@ section {
 
 @media only screen and (max-width: 480px) {
 
-    .card .bottom {
-        bottom: -10px;
+    body {
+        font-size: 16px;
+    }
+
+    p{
+        font-size: 90%;
+    }
+
+    .head{
+        padding: 10px 20px;
+    }
+
+    .head .search-bar input{
+        height: 35px;
+        font-size: 100%;
+    }
+    
+    .head .search-bar input::placeholder{
+        font-size: 100%;
+    }
+
+    .head .search-bar img{
+        left: 7px;
+        width: 20px;
+        height: auto;
+    }
+
+    .head .user-profile img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .content{
+        padding: 20px;
     }
 
 }
