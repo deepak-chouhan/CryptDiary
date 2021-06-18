@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png">
+    <link rel="manifest" href="resources/favicons/site.webmanifest">
+    <link rel="mask-icon" href="resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="resources/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="msapplication-config" content="resources/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/login.css">
+
+    <title>CryptDiary</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="resources/img/Logo.svg" alt="">
+                <h3>CryptDiary</h3>
+            </div>
+            <div class="navlinks">
+                <ul>
+                    <li><a class="btn btn-ghost" href="#">Sign up</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-nav">
+                <svg id="menu-button" class="menu-btn" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewbox="0 0 24 24" fill="currentColor">
+                    <path d="M4 6H20V8H4zM8 11H20V13H8zM13 16H20V18H13z"></path>
+                </svg>
+                <div id="mob-link" class="links">
+                    <ul>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Login</a></li>
+                    </ul>
+                    <div class="mobile-nav-bg"></div>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <div class="login">
+            <div class="row">
+                <div class="wrapper">
+                    <div class="login-form">
+                        <div class="login-text">
+                            <h2>Login to CryptDiary</h2>
+                        </div>
+                        <div class="form">
+                            <form action="/login" method="post">
+                                <div>
+                                    <p>Email</p>
+                                    <input type="email" name="email" id="" placeholder="robin@gmail.com">
+                                </div>
+                                <div>
+                                    <p>Password</p>
+                                    <input type="password" name="email" id="password" placeholder="******">
+                                </div>
+                                <div class="show-pass">
+                                    <input type="checkbox" name="email" id="show-password">
+                                    <p>Show password</p>
+                                </div>
+                                <button type="submit">Login</button>
+                            </form>
+                        </div>
+                        <div class="oauth-login">
+                            <div>
+                                <p>or Login using</p>
+                            </div>
+                            <div class="oauth">
+                                <div class="google">
+                                    <svg id="google" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                        viewBox="0 0 40 40">
+                                        <path id="Path_35" data-name="Path 35"
+                                            d="M43.611,20.083H42V20H24v8H35.3a12.009,12.009,0,1,1-3.342-12.961l5.657-5.657A19.979,19.979,0,1,0,44,24,20.136,20.136,0,0,0,43.611,20.083Z"
+                                            transform="translate(-4 -4)" fill="#ffc107" />
+                                        <path id="Path_36" data-name="Path 36"
+                                            d="M6.306,14.691l6.571,4.819a11.976,11.976,0,0,1,19.084-4.471l5.657-5.657A19.961,19.961,0,0,0,6.306,14.691Z"
+                                            transform="translate(-4 -4)" fill="#ff3d00" />
+                                        <path id="Path_37" data-name="Path 37"
+                                            d="M24,44a19.906,19.906,0,0,0,13.409-5.192l-6.19-5.238a11.969,11.969,0,0,1-18.5-5.516L6.2,33.079A19.984,19.984,0,0,0,24,44Z"
+                                            transform="translate(-4 -4)" fill="#4caf50" />
+                                        <path id="Path_38" data-name="Path 38"
+                                            d="M43.611,20.083H42V20H24v8H35.3a12.04,12.04,0,0,1-4.087,5.571l0,0,6.19,5.238A19.347,19.347,0,0,0,44,24,20.136,20.136,0,0,0,43.611,20.083Z"
+                                            transform="translate(-4 -4)" fill="#1976d2" />
+                                    </svg>
+
+                                </div>
+                                <div class="facebook">
+                                    <svg id="fb" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                        viewBox="0 0 40 40">
+                                        <path id="Path_33" data-name="Path 33"
+                                            d="M25,5A20,20,0,1,0,45,25,20,20,0,0,0,25,5Zm0,0"
+                                            transform="translate(-5 -5)" fill="#2966e1" />
+                                        <path id="Path_34" data-name="Path 34"
+                                            d="M27.1,29.89h5.177l.814-5.259H27.1V21.76c0-2.187.715-4.124,2.759-4.124h3.281V13.048a28.581,28.581,0,0,0-4.1-.247c-4.811,0-7.636,2.541-7.636,8.335v3.5H16.457V29.89H21.4V44.343a19.988,19.988,0,0,0,2.993.247,19.527,19.527,0,0,0,2.706-.206Zm0,0"
+                                            transform="translate(-4.397 -4.589)" fill="#fff" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-img">
+                        <img src="/resources/img/login-img.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="resources/js/login-signup.js"></script>
+</body>
+
+</html>
