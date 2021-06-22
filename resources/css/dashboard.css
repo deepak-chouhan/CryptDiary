@@ -532,6 +532,10 @@ section {
     transition: all .2s ease;
 }
 
+.address:hover {
+    transform: scale(1.02);
+}
+
 .address .top {
     display: flex;
     justify-content: space-between;
