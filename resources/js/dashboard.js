@@ -33,4 +33,18 @@ $(document).ready(function () {
 
     });
 
+    var add_button = document.getElementById("add-asset");
+    var asset = document.getElementById("asset");
+    var asset_remove = document.getElementById("asset-remove");
+
+    $(add_button).click(function () {
+        asset.style.opacity = "1";
+        asset.style.pointerEvents = "all";
+    });
+
+    $(asset_remove).click(function () {
+        asset.style.opacity = "0"
+        asset.style.pointerEvents = "none"
+    });
+
 })

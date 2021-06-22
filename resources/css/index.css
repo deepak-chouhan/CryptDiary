@@ -80,6 +80,11 @@ section {
     gap: 20px;
 }
 
+.logo img{
+    width: 50px;
+    height: auto;
+}
+
 .logo h3 {
     margin: auto 0;
 }
@@ -170,6 +175,12 @@ nav {
     font-size: 110%;
     font-weight: 400;
     color: var(--white);
+}
+
+.index-profile{
+    width: 45px;
+    height: auto;
+    border-radius: 500px;
 }
 
 /* --------------------------------------------------------------- */

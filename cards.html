@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png">
+    <link rel="manifest" href="resources/favicons/site.webmanifest">
+    <link rel="mask-icon" href="resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="resources/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="msapplication-config" content="resources/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/dashboard.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div id="asset" class="add-asset">
+        <div class="add">
+            <div class="add-asset-logo">
+                <img src="/resources/img/Logo.svg" alt="">
+                <h3>CryptDiary</h3>
+            </div>
+            <form action="POST">
+                <div>
+                    <p>Bank name</p>
+                    <input type="text" name="" id="" placeholder="HDFC Bank">
+                </div>
+                <div>
+                    <p>Card Holder</p>
+                    <input type="text" name="" id="" placeholder="Deepak Chouhan" autocomplete="off">
+                </div>
+                <div>
+                    <p>Card number</p>
+                    <input type="text" name="" id="" placeholder="4456-5984-5252-8585" autocomplete="off">
+                </div>
+                <div>
+                    <p>Expires on</p>
+                    <input type="month" name="" id="" placeholder="Deepak Chouhan" autocomplete="off">
+                </div>
+                <div class="card-pin-cvv">
+                    <div>
+                        <p>Pin</p>
+                        <input type="text" name="" id="" placeholder="2029" autocomplete="off">
+                    </div>
+                    <div>
+                        <p>CVV</p>
+                        <input type="text" name="" id="" placeholder="2029" autocomplete="off">
+                    </div>
+                </div>
+                <div class="asset-buttons">
+                    <button class="btn btn-full" type="submit">Save</button>
+                    <input id="asset-remove" class="btn btn-ghost" type="reset" value="Cancel">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="side-nav" class="sidebar">
+        <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+            <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
+                fill="#0554f2" />
+        </svg>
+        <div class="logo-content">
+            <div class="logo">
+                <a href="">
+                    <svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="54.489" height="62.118"
+                        viewbox="0 0 54.489 62.118">
+                        <path id="bg"
+                            d="M25.388,61.545,1.856,47.882A3.748,3.748,0,0,1,0,44.646V17.33a3.748,3.748,0,0,1,1.857-3.247L25.388.431a3.707,3.707,0,0,1,3.724,0l23.52,13.663a3.748,3.748,0,0,1,1.857,3.247v27.3a3.748,3.748,0,0,1-1.857,3.247L29.112,61.545A3.707,3.707,0,0,1,25.388,61.545Z"
+                            transform="translate(0 0.071)" fill="#0554f2" />
+                        <path id="cd"
+                            d="M31.218,176.426a8.735,8.735,0,0,1-7.874-4.594,9.763,9.763,0,0,1-1.178-4.767,9.415,9.415,0,0,1,1.207-4.71,9.135,9.135,0,0,1,3.3-3.323,9.246,9.246,0,0,1,8.363-.4,9.619,9.619,0,0,1,3.1,2.2.393.393,0,0,1,0,.491l-2.73,2.254a.4.4,0,0,1-.287.144.353.353,0,0,1-.287-.144,4.319,4.319,0,0,0-5.8-.925,5.355,5.355,0,0,0-2.27,5,4.779,4.779,0,0,0,3.42,4.276,4.393,4.393,0,0,0,4.655-1.214.346.346,0,0,1,.287-.087.279.279,0,0,1,.259.116l2.788,1.965a.393.393,0,0,1,0,.491,10.825,10.825,0,0,1-3.219,2.369A8.809,8.809,0,0,1,31.218,176.426Zm10.288,0a.363.363,0,0,1-.374-.376V158.744a.363.363,0,0,1,.374-.376h6.523a9.39,9.39,0,0,1,4.684,1.156,8.018,8.018,0,0,1,3.219,3.207,9.531,9.531,0,0,1,1.149,4.652,9.274,9.274,0,0,1-1.178,4.681,7.983,7.983,0,0,1-3.276,3.207,9.533,9.533,0,0,1-4.742,1.156Zm4.081-4.045h2.529a4.308,4.308,0,0,0,2.27-.607,4.463,4.463,0,0,0,1.581-1.762,5.77,5.77,0,0,0,.575-2.6,5.505,5.505,0,0,0-.6-2.6A4.485,4.485,0,0,0,50.3,163.02a4.64,4.64,0,0,0-2.356-.636H45.586Z"
+                            transform="translate(-12.4 -136.083)" fill="#fff" />
+                    </svg>
+                </a>
+            </div>
+            <!-- <img class="menu-btn" src="resources/img/menu.svg" alt="menu"> -->
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="">
+                    <img src="resources/img/Accounts.svg" alt="accounts">
+                    <p>Accounts</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="resources/img/cards.svg" alt="cards">
+                    <p>Cards</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="resources/img/Addresses.svg" alt="addresses">
+                    <p>Addresses</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="resources/img/Notes.svg" alt="notes">
+                    <p>Notes</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="resources/img/todo.svg" alt="todo">
+                    <p>ToDo</p>
+                </a>
+            </li>
+        </ul>
+        <div class="logout-btn">
+            <a href="">
+                <div class="logout">
+                    <img src="resources/img/logout.svg" alt="logout button">
+                    <p>Logout</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="head">
+        <div class="left">
+            <div>
+                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24"
+                    viewBox="0 0 30 24">
+                    <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
+                        fill="#0554f2" />
+                </svg>
+            </div>
+            <div class="dashboard-menu">
+            </div>
+            <div class="search-bar">
+                <img src="resources/img/Search.svg" alt="">
+                <input type="text" placeholder="Search" name="search" id="">
+            </div>
+        </div>
+
+        <div class="user-profile">
+            <p>Hi, Deepak</p>
+            <img src="https://tinyurl.com/y7zbmnvk" alt="">
+        </div>
+    </div>
+    <div class="home-content">
+        <div class="content">
+            <div class="content-head">
+                <div class="text">
+                    <h2>All Accounts</h2>
+                    <a href="#"></a>
+                </div>
+                <div class="add-button">
+                    <a class="btn btn-full" id="add-asset">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewbox="0 0 21.5 21.5"
+                                fill="#fff" stroke="#fff" stroke-width="2">
+                                <g id="Plus" transform="translate(0.75 0.75)">
+                                    <path id="Line_185" d="M.476,0V20" transform="translate(9.524)"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
+                                    <path id="Line_186" d="M20,.476H0" transform="translate(0 9.524)"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
+                                </g>
+                            </svg>
+                            <p>Add Card</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+
+                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_1.jpg);"
+                    class="card">
+                    <div class="top">
+                        <p>****</p>
+                        <div class="remove">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
+                                <g id="remove" transform="translate(0.319)">
+                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                        transform="translate(-0.319)" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="middle">
+                        <h3>4596 **** **** 5656</h3>
+                        <p>****</p>
+                    </div>
+                    <div class="btm">
+                        <div class="midbottom">
+                            <p>EXPIRES</p>
+                            <p>16 / 25</p>
+                        </div>
+                        <div class="bottom">
+                            <p>Deepak Chouhan</p>
+                            <h3>HDFC Bank</h3>
+                        </div>
+                    </div>
+                </a>
+                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_2.jpg);"
+                    class="card">
+                    <div class="top">
+                        <p>****</p>
+                        <div class="remove">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
+                                <g id="remove" transform="translate(0.319)">
+                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                        transform="translate(-0.319)" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="middle">
+                        <h3>4596 **** **** 5656</h3>
+                        <p>****</p>
+                    </div>
+                    <div class="btm">
+                        <div class="midbottom">
+                            <p>EXPIRES</p>
+                            <p>16 / 25</p>
+                        </div>
+                        <div class="bottom">
+                            <p>Deepak Chouhan</p>
+                            <h3>HDFC Bank</h3>
+                        </div>
+                    </div>
+                </a>
+                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_3.jpg);"
+                    class="card">
+                    <div class="top">
+                        <p>****</p>
+                        <div class="remove">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
+                                <g id="remove" transform="translate(0.319)">
+                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                        transform="translate(-0.319)" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="middle">
+                        <h3>4596 **** **** 5656</h3>
+                        <p>****</p>
+                    </div>
+                    <div class="btm">
+                        <div class="midbottom">
+                            <p>EXPIRES</p>
+                            <p>16 / 25</p>
+                        </div>
+                        <div class="bottom">
+                            <p>Deepak Chouhan</p>
+                            <h3>HDFC Bank</h3>
+                        </div>
+                    </div>
+                </a>
+                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_1.jpg);"
+                    class="card">
+                    <div class="top">
+                        <p>****</p>
+                        <div class="remove">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
+                                <g id="remove" transform="translate(0.319)">
+                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
+                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                        transform="translate(-0.319)" fill="none" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="middle">
+                        <h3>4596 **** **** 5656</h3>
+                        <p>****</p>
+                    </div>
+                    <div class="btm">
+                        <div class="midbottom">
+                            <p>EXPIRES</p>
+                            <p>16 / 25</p>
+                        </div>
+                        <div class="bottom">
+                            <p>Deepak Chouhan</p>
+                            <h3>HDFC Bank</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="resources/js/dashboard.js"></script>
+</body>
+
+</html>
