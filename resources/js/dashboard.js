@@ -47,4 +47,9 @@ $(document).ready(function () {
         asset.style.pointerEvents = "none"
     });
 
+
+    }
+
+
+
 })

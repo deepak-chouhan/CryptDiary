@@ -416,10 +416,20 @@ section {
     width: auto;
 }
 
+.pass .bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#acc-pass{
+    transition: display .2s ease;
+}
+
 .pass .bottom p:first-of-type {
     font-weight: 600;
-    margin-bottom: 5px;
 }
+
 
 
 /* --------------------------------------------------------------- */
