@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="resources/css/dashboard.css">
+    <link rel="stylesheet" href="/resources/css/dashboard.css">
     <title>Dashboard</title>
 </head>
 
@@ -36,30 +36,16 @@
             </div>
             <form action="POST">
                 <div>
-                    <p>Bank name</p>
-                    <input type="text" name="" id="" placeholder="HDFC Bank">
+                    <p>Address name</p>
+                    <input type="text" name="" id="" placeholder="Home">
                 </div>
                 <div>
-                    <p>Card Holder</p>
-                    <input type="text" name="" id="" placeholder="Deepak Chouhan" autocomplete="off">
+                    <p>Flat</p>
+                    <input type="text" name="" id="" placeholder="Flat 1404 A wing, casa bella" autocomplete="off">
                 </div>
                 <div>
-                    <p>Card number</p>
-                    <input type="text" name="" id="" placeholder="4456-5984-5252-8585" autocomplete="off">
-                </div>
-                <div>
-                    <p>Expires on</p>
-                    <input type="month" name="" id="" placeholder="Deepak Chouhan" autocomplete="off">
-                </div>
-                <div class="card-pin-cvv">
-                    <div>
-                        <p>Pin</p>
-                        <input type="text" name="" id="" placeholder="2029" autocomplete="off">
-                    </div>
-                    <div>
-                        <p>CVV</p>
-                        <input type="text" name="" id="" placeholder="2029" autocomplete="off">
-                    </div>
+                    <p>Area</p>
+                    <input type="text" name="" id="" placeholder="Nilje road, Dombivli E, 440456" autocomplete="off">
                 </div>
                 <div class="asset-buttons">
                     <button class="btn btn-full" type="submit">Save</button>
@@ -91,32 +77,32 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="">
-                    <img src="resources/img/Accounts.svg" alt="accounts">
+                <a href="/<%= username %> /accounts">
+                    <img src="/resources/img/Accounts.svg" alt="accounts">
                     <p>Accounts</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/cards.svg" alt="cards">
+                <a href="/<%= username %>/cards">
+                    <img src="/resources/img/cards.svg" alt="cards">
                     <p>Cards</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/Addresses.svg" alt="addresses">
+                <a href="/<%= username %>/addresses">
+                    <img src="/resources/img/Addresses.svg" alt="addresses">
                     <p>Addresses</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/Notes.svg" alt="notes">
+                <a href="/<%= username %>/notes">
+                    <img src="/resources/img/Notes.svg" alt="notes">
                     <p>Notes</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/todo.svg" alt="todo">
+                <a href="/<%= username %>/todo">
+                    <img src="/resources/img/todo.svg" alt="todo">
                     <p>ToDo</p>
                 </a>
             </li>
@@ -124,7 +110,7 @@
         <div class="logout-btn">
             <a href="">
                 <div class="logout">
-                    <img src="resources/img/logout.svg" alt="logout button">
+                    <img src="/resources/img/logout.svg" alt="logout button">
                     <p>Logout</p>
                 </div>
             </a>
@@ -133,8 +119,7 @@
     <div class="head">
         <div class="left">
             <div>
-                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24"
-                    viewBox="0 0 30 24">
+                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
                     <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
                         fill="#0554f2" />
                 </svg>
@@ -142,7 +127,7 @@
             <div class="dashboard-menu">
             </div>
             <div class="search-bar">
-                <img src="resources/img/Search.svg" alt="">
+                <img src="/resources/img/Search.svg" alt="">
                 <input type="text" placeholder="Search" name="search" id="">
             </div>
         </div>
@@ -157,7 +142,6 @@
             <div class="content-head">
                 <div class="text">
                     <h2>All Accounts</h2>
-                    <a href="#"></a>
                 </div>
                 <div class="add-button">
                     <a class="btn btn-full" id="add-asset">
@@ -177,20 +161,24 @@
                 </div>
             </div>
 
-            <div class="card-wrapper">
-
-                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_1.jpg);"
-                    class="card">
+            <div class="address-wrapper">
+                <a style="background: hsl(0, 100%, 90%);" class="address">
                     <div class="top">
-                        <p>****</p>
+                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            viewbox="0 0 40 40">
+                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
+                            <path id="Location-2" data-name="Location"
+                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
+                                transform="translate(8.05 5)" fill="#1b1a26" />
+                        </svg>
                         <div class="remove">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
                                 <g id="remove" transform="translate(0.319)">
                                     <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
                                         transform="translate(-0.319)" fill="none" />
@@ -199,32 +187,28 @@
                         </div>
                     </div>
                     <div class="middle">
-                        <h3>4596 **** **** 5656</h3>
-                        <p>****</p>
-                    </div>
-                    <div class="btm">
-                        <div class="midbottom">
-                            <p>EXPIRES</p>
-                            <p>16 / 25</p>
-                        </div>
-                        <div class="bottom">
-                            <p>Deepak Chouhan</p>
-                            <h3>HDFC Bank</h3>
-                        </div>
+                        <p class="heading">Address name</p>
+                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
+                        </p>
                     </div>
                 </a>
-                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_2.jpg);"
-                    class="card">
+                <a style="background: hsl(335, 100%, 90%);" class="address">
                     <div class="top">
-                        <p>****</p>
+                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            viewbox="0 0 40 40">
+                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
+                            <path id="Location-2" data-name="Location"
+                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
+                                transform="translate(8.05 5)" fill="#1b1a26" />
+                        </svg>
                         <div class="remove">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
                                 <g id="remove" transform="translate(0.319)">
                                     <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
                                         transform="translate(-0.319)" fill="none" />
@@ -233,32 +217,28 @@
                         </div>
                     </div>
                     <div class="middle">
-                        <h3>4596 **** **** 5656</h3>
-                        <p>****</p>
-                    </div>
-                    <div class="btm">
-                        <div class="midbottom">
-                            <p>EXPIRES</p>
-                            <p>16 / 25</p>
-                        </div>
-                        <div class="bottom">
-                            <p>Deepak Chouhan</p>
-                            <h3>HDFC Bank</h3>
-                        </div>
+                        <p class="heading">Address name</p>
+                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
+                        </p>
                     </div>
                 </a>
-                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_3.jpg);"
-                    class="card">
+                <a style="background: hsl(204, 100%, 90%);" class="address">
                     <div class="top">
-                        <p>****</p>
+                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            viewbox="0 0 40 40">
+                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
+                            <path id="Location-2" data-name="Location"
+                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
+                                transform="translate(8.05 5)" fill="#1b1a26" />
+                        </svg>
                         <div class="remove">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
                                 <g id="remove" transform="translate(0.319)">
                                     <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
                                         transform="translate(-0.319)" fill="none" />
@@ -267,32 +247,28 @@
                         </div>
                     </div>
                     <div class="middle">
-                        <h3>4596 **** **** 5656</h3>
-                        <p>****</p>
-                    </div>
-                    <div class="btm">
-                        <div class="midbottom">
-                            <p>EXPIRES</p>
-                            <p>16 / 25</p>
-                        </div>
-                        <div class="bottom">
-                            <p>Deepak Chouhan</p>
-                            <h3>HDFC Bank</h3>
-                        </div>
+                        <p class="heading">Address name</p>
+                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
+                        </p>
                     </div>
                 </a>
-                <a style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(resources/img/Card_1.jpg);"
-                    class="card">
+                <a style="background: hsl(271, 100%, 90%);" class="address">
                     <div class="top">
-                        <p>****</p>
+                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            viewbox="0 0 40 40">
+                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
+                            <path id="Location-2" data-name="Location"
+                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
+                                transform="translate(8.05 5)" fill="#1b1a26" />
+                        </svg>
                         <div class="remove">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
                                 <g id="remove" transform="translate(0.319)">
                                     <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-miterlimit="10" stroke-width="1.5" />
                                     <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
                                         transform="translate(-0.319)" fill="none" />
@@ -301,18 +277,39 @@
                         </div>
                     </div>
                     <div class="middle">
-                        <h3>4596 **** **** 5656</h3>
-                        <p>****</p>
+                        <p class="heading">Address name</p>
+                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
+                        </p>
                     </div>
-                    <div class="btm">
-                        <div class="midbottom">
-                            <p>EXPIRES</p>
-                            <p>16 / 25</p>
+                </a>
+                <a style="background: hsl(128, 100%, 90%);" class="address">
+                    <div class="top">
+                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            viewbox="0 0 40 40">
+                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
+                            <path id="Location-2" data-name="Location"
+                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
+                                transform="translate(8.05 5)" fill="#1b1a26" />
+                        </svg>
+                        <div class="remove">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
+                                <g id="remove" transform="translate(0.319)">
+                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
+                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                        transform="translate(-0.319)" fill="none" />
+                                </g>
+                            </svg>
                         </div>
-                        <div class="bottom">
-                            <p>Deepak Chouhan</p>
-                            <h3>HDFC Bank</h3>
-                        </div>
+                    </div>
+                    <div class="middle">
+                        <p class="heading">Address name</p>
+                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
+                        </p>
                     </div>
                 </a>
             </div>
@@ -321,7 +318,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="resources/js/dashboard.js"></script>
+    <script src="/resources/js/dashboard.js"></script>
 </body>
 
 </html>

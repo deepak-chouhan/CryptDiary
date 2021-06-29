@@ -43,8 +43,8 @@ $(document).ready(function () {
     });
 
     $(asset_remove).click(function () {
-        asset.style.opacity = "0"
-        asset.style.pointerEvents = "none"
+        asset.style.opacity = "0";
+        asset.style.pointerEvents = "none";
     });
 
 
@@ -52,4 +52,4 @@ $(document).ready(function () {
 
 
 
-})
+)

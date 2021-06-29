@@ -23,11 +23,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="resources/css/dashboard.css">
+    <link rel="stylesheet" href="/resources/css/dashboard.css">
     <title>Dashboard</title>
 </head>
 
 <body>
+    
     <div id="side-nav" class="sidebar">
         <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
             <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
@@ -51,32 +52,32 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="">
-                    <img src="resources/img/Accounts.svg" alt="accounts">
+                <a href="/<%= username %> /accounts">
+                    <img src="/resources/img/Accounts.svg" alt="accounts">
                     <p>Accounts</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/cards.svg" alt="cards">
+                <a href="/<%= username %>/cards">
+                    <img src="/resources/img/cards.svg" alt="cards">
                     <p>Cards</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/Addresses.svg" alt="addresses">
+                <a href="/<%= username %>/addresses">
+                    <img src="/resources/img/Addresses.svg" alt="addresses">
                     <p>Addresses</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/Notes.svg" alt="notes">
+                <a href="/<%= username %>/notes">
+                    <img src="/resources/img/Notes.svg" alt="notes">
                     <p>Notes</p>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="resources/img/todo.svg" alt="todo">
+                <a href="/<%= username %>/todo">
+                    <img src="/resources/img/todo.svg" alt="todo">
                     <p>ToDo</p>
                 </a>
             </li>
@@ -84,7 +85,7 @@
         <div class="logout-btn">
             <a href="">
                 <div class="logout">
-                    <img src="resources/img/logout.svg" alt="logout button">
+                    <img src="/resources/img/logout.svg" alt="logout button">
                     <p>Logout</p>
                 </div>
             </a>
@@ -101,7 +102,7 @@
             <div class="dashboard-menu">
             </div>
             <div class="search-bar">
-                <img src="resources/img/Search.svg" alt="">
+                <img src="/resources/img/Search.svg" alt="">
                 <input type="text" placeholder="Search" name="search" id="">
             </div>
         </div>
@@ -271,7 +272,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="resources/js/dashboard.js"></script>
+    <script src="/resources/js/dashboard.js"></script>
 </body>
 
 </html>
