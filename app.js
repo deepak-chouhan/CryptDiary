@@ -10,12 +10,14 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const FacebookStrategy = require('passport-facebook').Strategy;
+const {
+    request
+} = require('express');
 
 const app = express();
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -36,28 +38,61 @@ mongoose.connect("mongodb://localhost:27017/CryptDiary", {
 
 mongoose.set("useCreateIndex", true);
 
+const accountSchema = new mongoose.Schema({
+    website: String,
+    email: String,
+    password: String
+})
+const Account = mongoose.model("Account", accountSchema)
+
+const cardSchema = new mongoose.Schema({
+    bankname: String,
+    cardHolder: String,
+    cardNumber: String,
+    expiry: String,
+    pin: String,
+    cvv: String
+})
+const Card = mongoose.model("Card", cardSchema)
+
+const addressSchema = new mongoose.Schema({
+    addressName: String,
+    flat: String,
+    area: String
+})
+const Address = mongoose.model("Address", addressSchema)
+
+const noteSchema = new mongoose.Schema({
+    heading: String,
+    note: String
+})
+const Note = mongoose.model("Note", noteSchema)
+
+const todoSchema = new mongoose.Schema({
+    todo: String
+})
+const Todo = mongoose.model("Todo", todoSchema)
+
+
 const userschema = new mongoose.Schema({
     name: String,
     username: String,
     password: String,
     googleId: String,
     uid: String,
-    cards: [],
-    accounts: [],
-    addresses: [],
-    notes: [],
-    todo: []
+    cards: [cardSchema],
+    accounts: [accountSchema],
+    addresses: [addressSchema],
+    notes: [noteSchema],
+    todo: [todoSchema]
 });
 
-// const card = new mongoose.Schema({
-//     holder: String,
-
-// })
 
 userschema.plugin(passportLocalMongoose);
 userschema.plugin(findOrCreate);
 
 const User = mongoose.model("User", userschema);
+
 passport.use(User.createStrategy());
 
 
@@ -105,7 +140,8 @@ passport.use(new GoogleStrategy({
         // find the user in the database based on their Google id
         User.findOrCreate({
             username: profile.emails[0].value,
-            googleId: profile.id
+            googleId: profile.id,
+            name: profile.name.givenName + " " + profile.name.familyName
         }, function (err, user) {
             return cb(err, user);
         });
@@ -116,24 +152,68 @@ passport.use(new GoogleStrategy({
 
 
 app.get("/", function (req, res) {
-    res.render("index")
+    if (req.isAuthenticated()) {
+        res.render("index", {
+            logged: true,
+            username: req.user.name
+        })
+    } else {
+        res.render("index", {
+            logged: false
+        })
+    }
 })
 
 
-app.get("/:user/:userrequest", function (req, res) {
+app.get("/user/:name/:userrequest", function (req, res) {
+
     if (req.isAuthenticated()) {
         User.findById(req.user.id, function (err, founduser) {
             if (err) {
                 console.log(err)
             } else {
-                res.render(req.params.userrequest, {
-                    username: req.user.name
-                })
+
+                switch (req.params.userrequest) {
+                    case "accounts":
+                        res.render(req.params.userrequest, {
+                            username: req.user.name,
+                            assets: founduser.accounts
+                        })
+                        break
+                    case "cards":
+                        res.render(req.params.userrequest, {
+                            username: req.user.name,
+                            assets: founduser.cards
+                        })
+                        break
+                    case "addresses":
+                        res.render(req.params.userrequest, {
+                            username: req.user.name,
+                            assets: founduser.addresses
+                        })
+                        break
+                    case "notes":
+                        res.render(req.params.userrequest, {
+                            username: req.user.name,
+                            assets: founduser.notes
+                        })
+                        break
+                    case "todo":
+                        res.render(req.params.userrequest, {
+                            username: req.user.name,
+                            assets: founduser.todo
+                        })
+                        break
+
+                }
             }
         })
     } else {
-        res.redirect("/login")
+        console.log("not auth")
+        res.redirect("/")
     }
+
+
 })
 
 app.get("/login", function (req, res) {
@@ -164,16 +244,17 @@ app.get('/auth/google/accounts',
         failureRedirect: '/login'
     }),
     function (req, res) {
-        // res.redirect(`/${req.user.id}/accounts`);
-        res.redirect("/accounts")
+        res.redirect(`/user/${req.user.name}/accounts`);
     });
 
-app.get('/auth/facebook/callback', function (req, res) {
+app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect: `/${req.user.id}/accounts`,
         failureRedirect: '/login'
-    })
-});
+    }),
+    function (req, res) {
+        // Successful authentication, redirect home.
+        res.redirect(`/user/${req.user.name}/accounts`);
+    });
 
 
 app.post("/signup", function (req, res) {
@@ -189,7 +270,7 @@ app.post("/signup", function (req, res) {
             res.redirect("/signup");
         } else {
             passport.authenticate("local")(req, res, function () {
-                res.redirect("/user/accounts");
+                res.redirect(`/user/${req.user.name}/accounts`);
             });
         }
     });
@@ -209,24 +290,151 @@ app.post("/login", function (req, res) {
             res.redirect("/login")
         } else {
             passport.authenticate("local")(req, res, function () {
-                res.redirect(`/${req.user.name}/accounts`)
+                res.redirect(`/user/${req.user.name}/accounts`)
             })
         }
     })
 
 })
 
-app.post("/user/submit", function (req, res) {
-    request = req.body.asset;
+app.post("/user/:user/submit", function (req, res) {
+
     if (req.isAuthenticated()) {
-        User.find(req.user.id, function (err, founduser) {
+
+        User.findById(req.user.id, function (err, founduser) {
             if (err) {
-                console(err)
+                console.log(err)
             } else {
-                founduser.request.push()
+
+                var request = req.body.asset;
+
+                switch (request) {
+                    case "accounts":
+
+                        const account = new Account({
+                            website: req.body.website,
+                            email: req.body.email,
+                            password: req.body.password
+                        })
+
+                        founduser.accounts.push(account);
+                        founduser.save();
+                        res.redirect(`/user/${req.user.name}/${request}`);
+                        break;
+
+                    case "cards":
+
+                        const card = new Card({
+                            bankname: req.body.bankname,
+                            cardHolder: req.body.holdername,
+                            cardNumber: req.body.cardnumber,
+                            expiry: req.body.expiry,
+                            pin: req.body.pin,
+                            cvv: req.body.cvv
+                        })
+
+                        console.log(card)
+
+                        founduser.cards.push(card);
+                        founduser.save();
+                        res.redirect(`/user/${req.user.name}/${request}`);
+                        break;
+
+                    case "addresses":
+
+                        const address = new Address({
+                            addressName: req.body.addressname,
+                            flat: req.body.flat,
+                            area: req.body.area
+                        })
+
+                        founduser.addresses.push(address);
+                        founduser.save();
+                        res.redirect(`/user/${req.user.name}/${request}`);
+                        break;
+
+                    case "notes":
+
+                        const note = new Note({
+                            heading: req.body.heading,
+                            note: req.body.note
+                        })
+
+                        founduser.notes.push(note);
+                        founduser.save();
+                        res.redirect(`/user/${req.user.name}/${request}`);
+                        break;
+
+                    case "todo":
+
+                        const todo = new Todo({
+                            todo: req.body.todo
+                        })
+
+                        founduser.todo.push(todo);
+                        founduser.save();
+                        res.redirect(`/user/${req.user.name}/${request}`);
+
+                }
+
             }
         })
+
     }
+})
+
+app.post("/user/:user/:request/remove", function (req, res) {
+
+    if (req.isAuthenticated()) {
+
+        var assetId = req.body.remove;
+        var request = req.params.request;
+
+        User.findById(req.user.id, function (err, founduser) {
+            if (err) {
+                console.log(err)
+                res.redirect("/")
+            } else {
+                switch (request) {
+                    case "accounts":
+                        founduser.accounts.remove({
+                            _id: assetId
+                        });
+                        break;
+
+                    case "cards":
+                        founduser.cards.remove({
+                            _id: assetId
+                        });
+                        break;
+
+                    case "addresses":
+                        founduser.addresses.remove({
+                            _id: assetId
+                        });
+                        break;
+
+                    case "notes":
+                        founduser.notes.remove({
+                            _id: assetId
+                        });
+                        break;
+
+                    case "todo":
+                        founduser.todo.remove({
+                            _id: assetId
+                        });
+                        break
+                }
+                founduser.save();
+                res.redirect(`/user/${req.user.name}/${request}`);
+            }
+        })
+
+    } else {
+        res.redirect("/login")
+    }
+
 })
 
 

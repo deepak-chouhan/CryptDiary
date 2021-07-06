@@ -35,14 +35,16 @@
             </div>
             <div class="navlinks">
                 <ul>
+                    <% if (logged === true) { %>
+                    <div>
+                        <li><a href="/user/<%= username %>/accounts"><img class="index-profile" src="https://bit.ly/3zQD3W3"></a></li>
+                    </div>
+                    <% } else { %>
                     <div>
                         <li><a href="#">About</a></li>
                         <li><a class="btn btn-ghost" href="/login">Login</a></li>
                     </div>
-                    
-                    <!-- <div>
-                        <li><img class="index-profile" src="https://bit.ly/3zQD3W3"></img></li>
-                    </div> -->
+                    <% } %>
                 </ul>
             </div>
 

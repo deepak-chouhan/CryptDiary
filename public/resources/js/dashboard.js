@@ -34,10 +34,16 @@ $(document).ready(function () {
     });
 
     var add_button = document.getElementById("add-asset");
+    var add_button2 = document.getElementById("add-asset2");
     var asset = document.getElementById("asset");
     var asset_remove = document.getElementById("asset-remove");
 
     $(add_button).click(function () {
+        asset.style.opacity = "1";
+        asset.style.pointerEvents = "all";
+    });
+
+    $(add_button2).click(function () {
         asset.style.opacity = "1";
         asset.style.pointerEvents = "all";
     });

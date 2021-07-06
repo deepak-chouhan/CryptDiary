@@ -82,6 +82,8 @@ section {
 .logo {
     display: flex;
     gap: 20px;
+    text-decoration: none;
+    color: var(--dark);
 }
 
 .logo img{

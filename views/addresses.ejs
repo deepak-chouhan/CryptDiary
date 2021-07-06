@@ -34,21 +34,22 @@
                 <img src="/resources/img/Logo.svg" alt="">
                 <h3>CryptDiary</h3>
             </div>
-            <form action="POST">
+            <form action="/user/<%= username %>/submit" method="POST">
                 <div>
                     <p>Address name</p>
-                    <input type="text" name="" id="" placeholder="Home">
+                    <input type="text" name="addressname" id="" placeholder="Home">
                 </div>
                 <div>
                     <p>Flat</p>
-                    <input type="text" name="" id="" placeholder="Flat 1404 A wing, casa bella" autocomplete="off">
+                    <input type="text" name="flat" id="" placeholder="Flat 1404 A wing, casa bella" autocomplete="off">
                 </div>
                 <div>
                     <p>Area</p>
-                    <input type="text" name="" id="" placeholder="Nilje road, Dombivli E, 440456" autocomplete="off">
+                    <input type="text" name="area" id="" placeholder="Nilje road, Dombivli E, 440456"
+                        autocomplete="off">
                 </div>
                 <div class="asset-buttons">
-                    <button class="btn btn-full" type="submit">Save</button>
+                    <button class="btn btn-full" value="addresses" name="asset" type="submit">Save</button>
                     <input id="asset-remove" class="btn btn-ghost" type="reset" value="Cancel">
                 </div>
             </form>
@@ -61,7 +62,7 @@
         </svg>
         <div class="logo-content">
             <div class="logo">
-                <a href="">
+                <a href="/">
                     <svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="54.489" height="62.118"
                         viewbox="0 0 54.489 62.118">
                         <path id="bg"
@@ -77,31 +78,31 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="/<%= username %> /accounts">
+                <a href="/user/<%= username %> /accounts">
                     <img src="/resources/img/Accounts.svg" alt="accounts">
                     <p>Accounts</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/cards">
+                <a href="/user/<%= username %>/cards">
                     <img src="/resources/img/cards.svg" alt="cards">
                     <p>Cards</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/addresses">
+                <a href="/user/<%= username %>/addresses">
                     <img src="/resources/img/Addresses.svg" alt="addresses">
                     <p>Addresses</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/notes">
+                <a href="/user/<%= username %>/notes">
                     <img src="/resources/img/Notes.svg" alt="notes">
                     <p>Notes</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/todo">
+                <a href="/user/<%= username %>/todo">
                     <img src="/resources/img/todo.svg" alt="todo">
                     <p>ToDo</p>
                 </a>
@@ -119,7 +120,8 @@
     <div class="head">
         <div class="left">
             <div>
-                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24"
+                    viewBox="0 0 30 24">
                     <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
                         fill="#0554f2" />
                 </svg>
@@ -141,7 +143,7 @@
         <div class="content">
             <div class="content-head">
                 <div class="text">
-                    <h2>All Accounts</h2>
+                    <h2>All Addresses</h2>
                 </div>
                 <div class="add-button">
                     <a class="btn btn-full" id="add-asset">
@@ -161,159 +163,73 @@
                 </div>
             </div>
 
-            <div class="address-wrapper">
-                <a style="background: hsl(0, 100%, 90%);" class="address">
-                    <div class="top">
-                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewbox="0 0 40 40">
-                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
-                            <path id="Location-2" data-name="Location"
-                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
-                                transform="translate(8.05 5)" fill="#1b1a26" />
-                        </svg>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="middle">
-                        <p class="heading">Address name</p>
-                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
-                        </p>
-                    </div>
-                </a>
-                <a style="background: hsl(335, 100%, 90%);" class="address">
-                    <div class="top">
-                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewbox="0 0 40 40">
-                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
-                            <path id="Location-2" data-name="Location"
-                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
-                                transform="translate(8.05 5)" fill="#1b1a26" />
-                        </svg>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="middle">
-                        <p class="heading">Address name</p>
-                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
-                        </p>
-                    </div>
-                </a>
-                <a style="background: hsl(204, 100%, 90%);" class="address">
-                    <div class="top">
-                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewbox="0 0 40 40">
-                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
-                            <path id="Location-2" data-name="Location"
-                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
-                                transform="translate(8.05 5)" fill="#1b1a26" />
-                        </svg>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="middle">
-                        <p class="heading">Address name</p>
-                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
-                        </p>
-                    </div>
-                </a>
-                <a style="background: hsl(271, 100%, 90%);" class="address">
-                    <div class="top">
-                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewbox="0 0 40 40">
-                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
-                            <path id="Location-2" data-name="Location"
-                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
-                                transform="translate(8.05 5)" fill="#1b1a26" />
-                        </svg>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="middle">
-                        <p class="heading">Address name</p>
-                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
-                        </p>
-                    </div>
-                </a>
-                <a style="background: hsl(128, 100%, 90%);" class="address">
-                    <div class="top">
-                        <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewbox="0 0 40 40">
-                            <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40" fill="none" />
-                            <path id="Location-2" data-name="Location"
-                                d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
-                                transform="translate(8.05 5)" fill="#1b1a26" />
-                        </svg>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="middle">
-                        <p class="heading">Address name</p>
-                        <p>3rd Flr,rm No.27, 109, Masjid Bunder Road, Masjid Bunder (east), Mumbai, Maharashtra 421202
-                        </p>
-                    </div>
-                </a>
-            </div>
+            <form action="/user/<%= username %>/addresses/remove" method="post">
+                <div class="address-wrapper">
 
+                    <% if(assets.length > 0){ %>
+                    <% assets.forEach(function(address){ %>
+                    <div class="address">
+                        <div class="top">
+                            <a target="_blank" class="location"
+                                href="https://www.google.com/maps/search/?api=1&query=<%= address.flat %> <%= address.area %>">
+                                <svg id="Location" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewbox="0 0 40 40">
+                                    <rect id="Rectangle_27" data-name="Rectangle 27" width="40" height="40"
+                                        fill="none" />
+                                    <path id="Location-2" data-name="Location"
+                                        d="M12.757,30a2.037,2.037,0,0,1-1.1-.371,32.269,32.269,0,0,1-8.311-7.711A15.577,15.577,0,0,1,0,12.477,12.252,12.252,0,0,1,3.755,3.651,12.8,12.8,0,0,1,12.74,0,12.635,12.635,0,0,1,25.5,12.477a15.585,15.585,0,0,1-3.345,9.441,32.88,32.88,0,0,1-8.312,7.711A1.979,1.979,0,0,1,12.757,30ZM12.74,8.666a4.2,4.2,0,0,0-4.2,4.2A4.067,4.067,0,0,0,9.774,15.8a4.235,4.235,0,0,0,7.185-2.932,4.237,4.237,0,0,0-4.219-4.2Z"
+                                        transform="translate(8.05 5)" fill="currentColor" />
+                                </svg>
+                            </a>
+                            <button type="submit" value="<%= address._id %>" name="remove">
+                                <div class="remove">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                                        viewbox="0 0 16 16">
+                                        <g id="remove" transform="translate(0.319)">
+                                            <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
+                                                fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
+                                            <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
+                                                fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
+                                            <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                                transform="translate(-0.319)" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="middle">
+                            <p class="heading"><%= address.addressName %> </p>
+                            <p><%= address.flat %> <%= address.area %> </p>
+                        </div>
+                    </div>
+                    <%})%>
+
+                    <% }else{ %>
+                    <a id="add-asset2" class="add-asset2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="87" height="87"
+                            viewBox="0 0 87 87">
+                            <g id="Plus" transform="translate(4.911 4.911)">
+                                <path id="Line_185" d="M.476,0V57.429" transform="translate(38.263 10.024)"
+                                    fill="#14216e" stroke="#eaeff9" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-miterlimit="10" stroke-width="5" />
+                                <path id="Line_186" d="M57.429.476H0" transform="translate(10.024 38.263)"
+                                    fill="#14216e" stroke="#eaeff9" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-miterlimit="10" stroke-width="5" />
+                                <g id="Rectangle_389" data-name="Rectangle 389" transform="translate(-4.911 -4.911)"
+                                    fill="none" stroke="#e8edf7" stroke-linecap="round" stroke-width="5">
+                                    <rect width="87" height="87" rx="10" stroke="none" />
+                                    <rect x="2.5" y="2.5" width="82" height="82" rx="7.5" fill="none" />
+                                </g>
+                            </g>
+                        </svg>
+                        <h1>Add items</h1>
+                    </a>
+                    <% } %>
+
+                </div>
+            </form>
         </div>
     </div>
 

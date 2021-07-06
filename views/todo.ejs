@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    
+
     <div id="side-nav" class="sidebar">
         <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
             <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
@@ -36,7 +36,7 @@
         </svg>
         <div class="logo-content">
             <div class="logo">
-                <a href="">
+                <a href="/">
                     <svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="54.489" height="62.118"
                         viewbox="0 0 54.489 62.118">
                         <path id="bg"
@@ -52,31 +52,31 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="/<%= username %> /accounts">
+                <a href="/user/<%= username %> /accounts">
                     <img src="/resources/img/Accounts.svg" alt="accounts">
                     <p>Accounts</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/cards">
+                <a href="/user/<%= username %>/cards">
                     <img src="/resources/img/cards.svg" alt="cards">
                     <p>Cards</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/addresses">
+                <a href="/user/<%= username %>/addresses">
                     <img src="/resources/img/Addresses.svg" alt="addresses">
                     <p>Addresses</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/notes">
+                <a href="/user/<%= username %>/notes">
                     <img src="/resources/img/Notes.svg" alt="notes">
                     <p>Notes</p>
                 </a>
             </li>
             <li>
-                <a href="/<%= username %>/todo">
+                <a href="/user/<%= username %>/todo">
                     <img src="/resources/img/todo.svg" alt="todo">
                     <p>ToDo</p>
                 </a>
@@ -94,7 +94,8 @@
     <div class="head">
         <div class="left">
             <div>
-                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+                <svg class="dashboard-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="24"
+                    viewBox="0 0 30 24">
                     <path id="dashboard-menu" d="M34,6H4v4H34Zm0,10H4v4H34Zm0,10H4v4H34Z" transform="translate(-4 -6)"
                         fill="#0554f2" />
                 </svg>
@@ -116,157 +117,105 @@
         <div class="content">
             <div class="content-head">
                 <div class="text">
-                    <h2>All Accounts</h2>
+                    <h2>All Todo's</h2>
                     <a href="#"></a>
                 </div>
-                <!-- <div class="add-button">
-                    <a class="btn btn-full" href="">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewbox="0 0 21.5 21.5"
-                                fill="#fff" stroke="#fff" stroke-width="2">
-                                <g id="Plus" transform="translate(0.75 0.75)">
-                                    <path id="Line_185" d="M.476,0V20" transform="translate(9.524)"
-                                        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
-                                    <path id="Line_186" d="M20,.476H0" transform="translate(0 9.524)"
-                                        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
-                                </g>
-                            </svg>
-                            <p>Add Card</p>
-                        </div>
-                    </a>
-                </div> -->
             </div>
 
             <div class="todo-list-wrapper">
-                <div class="todo-input">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="31.5" viewBox="0 0 31.5 31.5">
-                        <g id="Plus" transform="translate(0.75 0.75)">
-                            <path id="Line_185" d="M.476,0V10.99" transform="translate(14.524 9.491)" fill="none"
-                                stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                stroke-width="1.5" />
-                            <path id="Line_186" d="M11,.476H0" transform="translate(9.5 14.51)" fill="none"
-                                stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                stroke-width="1.5" />
-                            <path id="Path"
-                                d="M22.029,0H7.971C3.071,0,0,3.468,0,8.378V21.622C0,26.532,3.057,30,7.971,30H22.029C26.943,30,30,26.532,30,21.622V8.378C30,3.468,26.943,0,22.029,0Z"
-                                transform="translate(0)" fill="none" stroke="#9b9ea8" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
-                        </g>
-                    </svg>
-                    <input type="text" placeholder="Add new task" name="todo" id="">
-                    <div class="add-button">
-                        <a class="btn btn-full" href="">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5"
-                                    viewbox="0 0 21.5 21.5" fill="#fff" stroke="#fff" stroke-width="2">
-                                    <g id="Plus" transform="translate(0.75 0.75)">
-                                        <path id="Line_185" d="M.476,0V20" transform="translate(9.524)"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
-                                        <path id="Line_186" d="M20,.476H0" transform="translate(0 9.524)"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
-                                    </g>
-                                </svg>
-                                <p>Add</p>
+                <form action="/user/<%= username %>/submit" method="POST">
+                    <div class="todo-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="31.5" viewBox="0 0 31.5 31.5">
+                            <g id="Plus" transform="translate(0.75 0.75)">
+                                <path id="Line_185" d="M.476,0V10.99" transform="translate(14.524 9.491)" fill="none"
+                                    stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-miterlimit="10" stroke-width="1.5" />
+                                <path id="Line_186" d="M11,.476H0" transform="translate(9.5 14.51)" fill="none"
+                                    stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-miterlimit="10" stroke-width="1.5" />
+                                <path id="Path"
+                                    d="M22.029,0H7.971C3.071,0,0,3.468,0,8.378V21.622C0,26.532,3.057,30,7.971,30H22.029C26.943,30,30,26.532,30,21.622V8.378C30,3.468,26.943,0,22.029,0Z"
+                                    transform="translate(0)" fill="none" stroke="#9b9ea8" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
+                            </g>
+                        </svg>
+                        <input type="text" placeholder="Add new task" name="todo" id="">
+                        <div class="add-button">
+                            <button type="submit" value="todo" name="asset" class="btn btn-full">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5"
+                                        viewbox="0 0 21.5 21.5" fill="#fff" stroke="#fff" stroke-width="2">
+                                        <g id="Plus" transform="translate(0.75 0.75)">
+                                            <path id="Line_185" d="M.476,0V20" transform="translate(9.524)"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
+                                            <path id="Line_186" d="M20,.476H0" transform="translate(0 9.524)"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
+                                        </g>
+                                    </svg>
+                                    <p>Add</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <form action="/user/<%= username %>/todo/remove" method="POST">
+                    <div class="todo-wrapper">
+                        <% if(assets.length > 0){ %>
+                        <% assets.forEach(function(todo){ %>
+
+                        <div class="todo">
+                            <div class="left">
+                                <p><%= todo.todo %> </p>
                             </div>
+                            <div class="right">
+                                <button value="<%= todo._id %>" name="remove" type="submit">
+                                    <div class="remove">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewbox="0 0 16 16">
+                                            <g id="remove" transform="translate(0.319)">
+                                                <path id="Line_185" d="M0,0V15"
+                                                    transform="translate(13.106 2.5) rotate(45)" fill="none"
+                                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-miterlimit="10" stroke-width="1.5" />
+                                                <path id="Line_186" d="M15,0H0"
+                                                    transform="translate(2.5 2.5) rotate(45)" fill="none"
+                                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-miterlimit="10" stroke-width="1.5" />
+                                                <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                                    transform="translate(-0.319)" fill="none" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <% }) %>
+                        <% }else{ %>
+                        <a id="add-asset2" class="add-asset2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="87" height="87" viewBox="0 0 87 87">
+                                <g id="Plus" transform="translate(4.911 4.911)">
+                                    <path id="Line_185" d="M.476,0V57.429" transform="translate(38.263 10.024)"
+                                        fill="#14216e" stroke="#eaeff9" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="5" />
+                                    <path id="Line_186" d="M57.429.476H0" transform="translate(10.024 38.263)"
+                                        fill="#14216e" stroke="#eaeff9" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-miterlimit="10" stroke-width="5" />
+                                    <g id="Rectangle_389" data-name="Rectangle 389" transform="translate(-4.911 -4.911)"
+                                        fill="none" stroke="#e8edf7" stroke-linecap="round" stroke-width="5">
+                                        <rect width="87" height="87" rx="10" stroke="none" />
+                                        <rect x="2.5" y="2.5" width="82" height="82" rx="7.5" fill="none" />
+                                    </g>
+                                </g>
+                            </svg>
+                            <h1>Add items</h1>
                         </a>
-                    </div>
-                </div>
+                        <% } %>
 
-                <div class="todo-wrapper">
-                    <div style="background: hsl(241, 100%, 90%);" class="todo">
-                        <div class="left">
-                            <input type="checkbox" name="todo" id="">
-                        </div>
-                        <div class="middle">
-                            <p>Polishing the UI Design of Dashboard</p>
-                        </div>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
                     </div>
-    
-                    <div style="background: hsl(0, 100%, 90%);" class="todo">
-                        <div class="left">
-                            <input type="checkbox" name="todo" id="">
-                        </div>
-                        <div class="middle">
-                            <p>Polishing the UI Design of Dashboard</p>
-                        </div>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div style="background: hsl(135, 100%, 90%);" class="todo">
-                        <div class="left">
-                            <input type="checkbox" name="todo" id="">
-                        </div>
-                        <div class="middle">
-                            <p>Polishing the UI Design of Dashboard</p>
-                        </div>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div style="background: hsl(313, 100%, 90%);" class="todo">
-                        <div class="left">
-                            <input type="checkbox" name="todo" id="">
-                        </div>
-                        <div class="middle">
-                            <p>Polishing the UI Design of Dashboard</p>
-                        </div>
-                        <div class="remove">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
-                                <g id="remove" transform="translate(0.319)">
-                                    <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
-                                        fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-miterlimit="10" stroke-width="1.5" />
-                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
-                                        transform="translate(-0.319)" fill="none" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-    
-                </div>
+                </form>
             </div>
+
 
         </div>
     </div>
