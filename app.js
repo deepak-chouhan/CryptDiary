@@ -136,7 +136,6 @@ passport.use(new GoogleStrategy({
         userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
     },
     function (accessToken, refreshToken, profile, cb) {
-        console.log(profile)
         // find the user in the database based on their Google id
         User.findOrCreate({
             username: profile.emails[0].value,
@@ -165,9 +164,10 @@ app.get("/", function (req, res) {
 })
 
 
-app.get("/user/:name/:userrequest", function (req, res) {
+app.get("/user/:name/:userrequest/:document/", function (req, res) {
 
     if (req.isAuthenticated()) {
+
         User.findById(req.user.id, function (err, founduser) {
             if (err) {
                 console.log(err)
@@ -177,40 +177,45 @@ app.get("/user/:name/:userrequest", function (req, res) {
                     case "accounts":
                         res.render(req.params.userrequest, {
                             username: req.user.name,
-                            assets: founduser.accounts
+                            assets: founduser.accounts,
+                            document: req.params.document
                         })
                         break
                     case "cards":
                         res.render(req.params.userrequest, {
                             username: req.user.name,
-                            assets: founduser.cards
+                            assets: founduser.cards,
+                            document: req.params.document
                         })
                         break
                     case "addresses":
                         res.render(req.params.userrequest, {
                             username: req.user.name,
-                            assets: founduser.addresses
+                            assets: founduser.addresses,
+                            document: req.params.document
                         })
                         break
                     case "notes":
                         res.render(req.params.userrequest, {
                             username: req.user.name,
-                            assets: founduser.notes
+                            assets: founduser.notes,
+                            document: req.params.document
                         })
                         break
                     case "todo":
                         res.render(req.params.userrequest, {
                             username: req.user.name,
-                            assets: founduser.todo
+                            assets: founduser.todo,
+                            document: req.params.document
                         })
                         break
 
                 }
             }
         })
+
     } else {
-        console.log("not auth")
-        res.redirect("/")
+        res.redirect("/login")
     }
 
 
@@ -244,7 +249,7 @@ app.get('/auth/google/accounts',
         failureRedirect: '/login'
     }),
     function (req, res) {
-        res.redirect(`/user/${req.user.name}/accounts`);
+        res.redirect(`/user/${req.user.name}/accounts/all`);
     });
 
 app.get('/auth/facebook/callback',
@@ -253,7 +258,7 @@ app.get('/auth/facebook/callback',
     }),
     function (req, res) {
         // Successful authentication, redirect home.
-        res.redirect(`/user/${req.user.name}/accounts`);
+        res.redirect(`/user/${req.user.name}/accounts/all`);
     });
 
 
@@ -270,7 +275,7 @@ app.post("/signup", function (req, res) {
             res.redirect("/signup");
         } else {
             passport.authenticate("local")(req, res, function () {
-                res.redirect(`/user/${req.user.name}/accounts`);
+                res.redirect(`/user/${req.user.name}/accounts/all`);
             });
         }
     });
@@ -290,7 +295,7 @@ app.post("/login", function (req, res) {
             res.redirect("/login")
         } else {
             passport.authenticate("local")(req, res, function () {
-                res.redirect(`/user/${req.user.name}/accounts`)
+                res.redirect(`/user/${req.user.name}/accounts/all`)
             })
         }
     })
@@ -319,7 +324,6 @@ app.post("/user/:user/submit", function (req, res) {
 
                         founduser.accounts.push(account);
                         founduser.save();
-                        res.redirect(`/user/${req.user.name}/${request}`);
                         break;
 
                     case "cards":
@@ -337,7 +341,6 @@ app.post("/user/:user/submit", function (req, res) {
 
                         founduser.cards.push(card);
                         founduser.save();
-                        res.redirect(`/user/${req.user.name}/${request}`);
                         break;
 
                     case "addresses":
@@ -350,7 +353,6 @@ app.post("/user/:user/submit", function (req, res) {
 
                         founduser.addresses.push(address);
                         founduser.save();
-                        res.redirect(`/user/${req.user.name}/${request}`);
                         break;
 
                     case "notes":
@@ -362,7 +364,6 @@ app.post("/user/:user/submit", function (req, res) {
 
                         founduser.notes.push(note);
                         founduser.save();
-                        res.redirect(`/user/${req.user.name}/${request}`);
                         break;
 
                     case "todo":
@@ -373,9 +374,10 @@ app.post("/user/:user/submit", function (req, res) {
 
                         founduser.todo.push(todo);
                         founduser.save();
-                        res.redirect(`/user/${req.user.name}/${request}`);
+                        break
 
                 }
+                res.redirect(`/user/${req.user.name}/${request}/all`);
 
             }
         })
@@ -427,7 +429,7 @@ app.post("/user/:user/:request/remove", function (req, res) {
                         break
                 }
                 founduser.save();
-                res.redirect(`/user/${req.user.name}/${request}`);
+                res.redirect(`/user/${req.user.name}/${request}/all`);
             }
         })
 
@@ -435,6 +437,21 @@ app.post("/user/:user/:request/remove", function (req, res) {
         res.redirect("/login")
     }
 
+})
+
+app.post("/user/:user/:request/search", function (req, res) {
+    var request = req.params.request
+    var search = req.body.search
+    console.log(search)
+    if (req.isAuthenticated()) {
+        if (search === "") {
+            res.redirect(`/user/${req.user.name}/${request}/all`)
+        } else {
+            res.redirect(`/user/${req.user.name}/${request}/${search}`)
+        }
+    } else {
+        res.redirect("/login")
+    }
 })
 
 

@@ -52,38 +52,38 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="/user/<%= username %> /accounts">
+                <a href="/user/<%= username %> /accounts/all">
                     <img src="/resources/img/Accounts.svg" alt="accounts">
                     <p>Accounts</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/cards">
+                <a href="/user/<%= username %>/cards/all">
                     <img src="/resources/img/cards.svg" alt="cards">
                     <p>Cards</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/addresses">
+                <a href="/user/<%= username %>/addresses/all">
                     <img src="/resources/img/Addresses.svg" alt="addresses">
                     <p>Addresses</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/notes">
+                <a href="/user/<%= username %>/notes/all">
                     <img src="/resources/img/Notes.svg" alt="notes">
                     <p>Notes</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/todo">
+                <a href="/user/<%= username %>/todo/all">
                     <img src="/resources/img/todo.svg" alt="todo">
                     <p>ToDo</p>
                 </a>
             </li>
         </ul>
         <div class="logout-btn">
-            <a href="">
+            <a href="/logout">
                 <div class="logout">
                     <img src="/resources/img/logout.svg" alt="logout button">
                     <p>Logout</p>
@@ -102,10 +102,12 @@
             </div>
             <div class="dashboard-menu">
             </div>
-            <div class="search-bar">
-                <img src="/resources/img/Search.svg" alt="">
-                <input type="text" placeholder="Search" name="search" id="">
-            </div>
+            <form action="/user/<%= username %>/todo/search" method="post">
+                <div class="search-bar">
+                    <img src="/resources/img/Search.svg" onclick="submit()" alt="search-bar">
+                    <input type="text" placeholder="Search" value="" name="search" id="">
+                </div>
+            </form>
         </div>
 
         <div class="user-profile">
@@ -160,7 +162,7 @@
                 </form>
                 <form action="/user/<%= username %>/todo/remove" method="POST">
                     <div class="todo-wrapper">
-                        <% if(assets.length > 0){ %>
+                        <% if(assets.length > 0 && document === "all"){ %>
                         <% assets.forEach(function(todo){ %>
 
                         <div class="todo">
@@ -191,6 +193,42 @@
                         </div>
 
                         <% }) %>
+
+                        <% } else if(assets.length > 0 && document != "all"){ %>
+
+                        <% assets.forEach(function(todo){ %>
+
+                        <% if(todo.todo.toLowerCase().includes(document.toLowerCase())){ %>
+                            <div class="todo">
+                                <div class="left">
+                                    <p><%= todo.todo %> </p>
+                                </div>
+                                <div class="right">
+                                    <button value="<%= todo._id %>" name="remove" type="submit">
+                                        <div class="remove">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewbox="0 0 16 16">
+                                                <g id="remove" transform="translate(0.319)">
+                                                    <path id="Line_185" d="M0,0V15"
+                                                        transform="translate(13.106 2.5) rotate(45)" fill="none"
+                                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                                    <path id="Line_186" d="M15,0H0"
+                                                        transform="translate(2.5 2.5) rotate(45)" fill="none"
+                                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-miterlimit="10" stroke-width="1.5" />
+                                                    <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                                        transform="translate(-0.319)" fill="none" />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        <% } %>
+
+                        <% }) %>
+
                         <% }else{ %>
                         <a id="add-asset2" class="add-asset2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="87" height="87" viewBox="0 0 87 87">

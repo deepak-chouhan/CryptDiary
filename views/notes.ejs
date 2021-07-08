@@ -73,38 +73,38 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="/user/<%= username %> /accounts">
+                <a href="/user/<%= username %> /accounts/all">
                     <img src="/resources/img/Accounts.svg" alt="accounts">
                     <p>Accounts</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/cards">
+                <a href="/user/<%= username %>/cards/all">
                     <img src="/resources/img/cards.svg" alt="cards">
                     <p>Cards</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/addresses">
+                <a href="/user/<%= username %>/addresses/all">
                     <img src="/resources/img/Addresses.svg" alt="addresses">
                     <p>Addresses</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/notes">
+                <a href="/user/<%= username %>/notes/all">
                     <img src="/resources/img/Notes.svg" alt="notes">
                     <p>Notes</p>
                 </a>
             </li>
             <li>
-                <a href="/user/<%= username %>/todo">
+                <a href="/user/<%= username %>/todo/all">
                     <img src="/resources/img/todo.svg" alt="todo">
                     <p>ToDo</p>
                 </a>
             </li>
         </ul>
         <div class="logout-btn">
-            <a href="">
+            <a href="/logout">
                 <div class="logout">
                     <img src="/resources/img/logout.svg" alt="logout button">
                     <p>Logout</p>
@@ -123,10 +123,12 @@
             </div>
             <div class="dashboard-menu">
             </div>
-            <div class="search-bar">
-                <img src="/resources/img/Search.svg" alt="">
-                <input type="text" placeholder="Search" name="search" id="">
-            </div>
+            <form action="/user/<%= username %>/notes/search" method="post">
+                <div class="search-bar">
+                    <img src="/resources/img/Search.svg" onclick="submit()" alt="search-bar">
+                    <input type="text" placeholder="Search" value="" name="search" id="">
+                </div>
+            </form>
         </div>
 
         <div class="user-profile">
@@ -162,7 +164,7 @@
             <form action="/user/<%= username %>/notes/remove" method="post">
 
                 <div class="notes-wrapper">
-                    <% if(assets.length > 0){ %>
+                    <% if(assets.length > 0 && document === "all"){ %>
                     <% assets.forEach(function(note){ %>
 
                     <div class="note">
@@ -201,6 +203,52 @@
                     </div>
 
                     <% }) %>
+
+                    <% } else if(assets.length > 0 && document != "all"){ %>
+
+                    <% assets.forEach(function(note){ %>
+
+                    <% if(note.heading.toLowerCase() === document.toLowerCase()){ %>
+
+                    <div class="note">
+                        <div class="top">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                                <g id="note" transform="translate(0.5)">
+                                    <rect id="Rectangle_26" data-name="Rectangle 26" width="40" height="40"
+                                        transform="translate(-0.5)" fill="none" />
+                                    <path id="Paper"
+                                        d="M7.011,30A7.047,7.047,0,0,1,0,22.935V6.765A6.74,6.74,0,0,1,6.7,0h7.931a.687.687,0,0,1,.683.69V5.52a5.011,5.011,0,0,0,4.961,5.01c.635,0,1.191,0,1.683.009.385,0,.721.005,1.019.005.212,0,.485,0,.782-.007.343,0,.729-.008,1.075-.008a.672.672,0,0,1,.668.675v12.06A6.71,6.71,0,0,1,18.831,30Zm.015-9.539a1.134,1.134,0,0,0,1.114,1.125h8.078a1.134,1.134,0,0,0,1.114-1.125,1.113,1.113,0,0,0-1.114-1.111H8.139A1.113,1.113,0,0,0,7.025,20.461Zm0-7.486a1.113,1.113,0,0,0,1.114,1.11h5.019a1.113,1.113,0,0,0,1.114-1.11,1.134,1.134,0,0,0-1.114-1.125H8.139A1.134,1.134,0,0,0,7.025,12.975ZM20.472,8.339a3.027,3.027,0,0,1-3-3.025V1.359A.71.71,0,0,1,18.7.859c1.605,1.685,4.41,4.633,5.979,6.28a.715.715,0,0,1-.51,1.21l-1.037,0C22.19,8.351,21.224,8.346,20.472,8.339Z"
+                                        transform="translate(7.585 5)" fill="#1b1a26" />
+                                </g>
+                            </svg>
+
+                            <button value="<%= note._id %>" name="remove" type="submit">
+                                <div class="remove">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16">
+                                        <g id="remove" transform="translate(0.319)">
+                                            <path id="Line_185" d="M0,0V15" transform="translate(13.106 2.5) rotate(45)"
+                                                fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
+                                            <path id="Line_186" d="M15,0H0" transform="translate(2.5 2.5) rotate(45)"
+                                                fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
+                                            <rect id="Rectangle_31" data-name="Rectangle 31" width="16" height="16"
+                                                transform="translate(-0.319)" fill="none" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="middle">
+                            <p class="heading"><%= note.heading %> </p>
+                            <p><%= note.note %> </p>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                    <% }) %>
+
                     <% }else{ %>
                     <a id="add-asset2" class="add-asset2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="87" height="87" viewBox="0 0 87 87">
