@@ -111,7 +111,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new FacebookStrategy({
         clientID: process.env.FB_APP_ID,
         clientSecret: process.env.FB_SECRET,
-        callbackURL: "http://localhost:3000/auth/facebook/callback",
+        callbackURL: "https://cryptdiary.herokuapp.com/auth/facebook/callback",
         profileFields: ["id", "displayName", "name", "gender", "picture.type(large)", "email"]
     },
     function (accessToken, refreshToken, profile, done) {
@@ -130,7 +130,7 @@ passport.use(new FacebookStrategy({
 passport.use(new GoogleStrategy({
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/google/accounts",
+        callbackURL: "https://cryptdiary.herokuapp.com/auth/google/accounts",
 
         // This option tells the strategy to use the userinfo endpoint instead
         userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
