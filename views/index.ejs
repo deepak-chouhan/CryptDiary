@@ -37,7 +37,15 @@
                 <ul>
                     <% if (logged === true) { %>
                     <div>
-                        <li><a href="/user/<%= username %>/accounts"><img class="index-profile" src="https://bit.ly/3zQD3W3"></a></li>
+                        <li>
+                            <a id="profile-link" href="/user/<%= username %> /accounts/all">
+                                <div class="user-profile">
+                                    <div class="profile-photo">
+                                        <h3><%= username.split(" ")[0].charAt(0).toUpperCase()%></h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
                     </div>
                     <% } else { %>
                     <div>

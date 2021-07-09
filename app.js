@@ -149,7 +149,6 @@ passport.use(new GoogleStrategy({
 ));
 
 
-
 app.get("/", function (req, res) {
     if (req.isAuthenticated()) {
         res.render("index", {
@@ -162,7 +161,6 @@ app.get("/", function (req, res) {
         })
     }
 })
-
 
 app.get("/user/:name/:userrequest/:document/", function (req, res) {
 
@@ -309,10 +307,9 @@ app.post("/user/:user/submit", function (req, res) {
         User.findById(req.user.id, function (err, founduser) {
             if (err) {
                 console.log(err)
+                res.redirect("/")
             } else {
-
                 var request = req.body.asset;
-
                 switch (request) {
                     case "accounts":
 
@@ -442,7 +439,6 @@ app.post("/user/:user/:request/remove", function (req, res) {
 app.post("/user/:user/:request/search", function (req, res) {
     var request = req.params.request
     var search = req.body.search
-    console.log(search)
     if (req.isAuthenticated()) {
         if (search === "") {
             res.redirect(`/user/${req.user.name}/${request}/all`)
