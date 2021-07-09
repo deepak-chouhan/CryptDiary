@@ -31,7 +31,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/CryptDiary", {
+mongoose.connect(`mongodb+srv://admin-deepak:${process.env.MONGODB}@cryptdiary.k9dvy.mongodb.net/CryptDiary?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -450,8 +450,10 @@ app.post("/user/:user/:request/search", function (req, res) {
     }
 })
 
-
-
-app.listen(3000, function () {
-    console.log("Servel started on port 3000");
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function () {
+    console.log("Server started successfully")
+})
