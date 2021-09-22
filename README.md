@@ -14,9 +14,10 @@ This is my first web project after completing 3 Month of webdevelopment course.
 - Taking Notes
 - ToDo list to keep track to their tasks
 
-```
 
 ### Tech stack used
+
+```
 - Front-end:
   - HTML, CSS, Java-Script
 
