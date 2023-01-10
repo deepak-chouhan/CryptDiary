@@ -1,5 +1,6 @@
 # CryptDiary
 Personal Web project
+!["image"](https://raw.githubusercontent.com/deepak-chouhan/CryptDiary/main/CryptDiary.png)
 
 You can take a look of this project at -> https://cryptdiary.herokuapp.com/
 
