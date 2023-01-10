@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="27.414" height="27.414" viewBox="0 0 27.414 27.414">
-  <g id="Search" transform="translate(1 1)">
-    <ellipse id="Ellipse_739" cx="11.976" cy="11.69" rx="11.976" ry="11.69" fill="none" stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
-    <path id="Line_181" d="M0,0,4.7,4.571" transform="translate(20.305 20.429)" fill="none" stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="27.414" height="27.414" viewBox="0 0 27.414 27.414"><g id="Search" transform="translate(1 1)"><ellipse id="Ellipse_739" cx="11.976" cy="11.69" fill="none" stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" rx="11.976" ry="11.69"/><path id="Line_181" fill="none" stroke="#9b9ea8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M0,0,4.7,4.571" transform="translate(20.305 20.429)"/></g></svg>
